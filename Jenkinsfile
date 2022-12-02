@@ -26,7 +26,7 @@ pipeline {
                 }
            }
            steps {
-               sh "mvn clean compile"
+               echo 'master code health'
             }
         }
         stage("Run Test cases") {
@@ -34,7 +34,7 @@ pipeline {
                 branch 'develop';
             }
            steps {
-               sh "mvn clean test"
+               echo 'master test'
             }
         }
         stage("Check Code coverage") {
@@ -57,7 +57,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                sh "mvn tomcat7:deploy"
+                echo 'master deploy'
             }
         }
     }
